@@ -1,0 +1,318 @@
+/* =========================
+   RESET GENERAL
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   BODY + FONDO ANIMADO
+========================== */
+body {
+  min-height: 100vh;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+/* Fondo real con zoom lento */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("Imagenes/login-bg.jpg") center/cover no-repeat;
+
+  transform: scale(1);
+  animation: zoomSlow 18s ease-in-out infinite alternate;
+
+  z-index: -2;
+}
+
+/* Overlay oscuro encima del fondo */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: -1;
+}
+
+/* Animación del zoom lento */
+@keyframes zoomSlow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+/* =========================
+   HEADER
+========================== */
+.header {
+  width: 100%;
+  padding: 18px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  z-index: 10;
+}
+
+/* Logo */
+.logo-box {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  filter: drop-shadow(0px 0px 14px rgba(215, 180, 106, 0.7));
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #d7b46a;
+}
+
+/* =========================
+   CONTENEDOR LOGIN
+========================== */
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 100px;
+  padding-bottom: 60px;
+
+  z-index: 2;
+  position: relative;
+}
+
+/* Caja del login */
+.login-box {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 40px 35px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+
+  text-align: center;
+}
+
+/* Título */
+.login-box h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Subtítulo */
+.subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* =========================
+   FORMULARIO
+========================== */
+.login-form {
+  margin-top: 30px;
+  text-align: left;
+}
+
+/* Grupo input */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: rgba(215, 180, 106, 0.9);
+  box-shadow: 0px 0px 10px rgba(215, 180, 106, 0.35);
+}
+
+/* Opciones */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 15px 0 25px;
+  font-size: 12px;
+}
+
+.remember {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.forgot {
+  text-decoration: none;
+  color: rgba(215, 180, 106, 0.85);
+  transition: 0.3s;
+}
+
+.forgot:hover {
+  color: #d7b46a;
+  text-decoration: underline;
+}
+
+/* =========================
+   BOTÓN LOGIN
+========================== */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: #d7b46a;
+  color: black;
+
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 10px 25px rgba(215, 180, 106, 0.35);
+}
+
+/* Texto registro */
+.register-text {
+  margin-top: 18px;
+  font-size: 13px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.register-text a {
+  color: #d7b46a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================== */
+.footer {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+
+  text-align: center;
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  z-index: 2;
+}
+
+/* =========================
+   RESPONSIVE
+========================== */
+@media (max-width: 600px) {
+  .header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .login-box {
+    max-width: 92%;
+    padding: 35px 25px;
+  }
+
+  .login-box h1 {
+    font-size: 24px;
+  }
+}
